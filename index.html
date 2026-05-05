@@ -258,6 +258,19 @@
       <p class="hidePara" aria-hidden="true" id="helpRobot"></p>
       <input type="submit" id="send_form" name="valider" value="send">
     </form>
+
+
+<div id="thankYouPopup"
+  style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:white; padding:20px; border:1px solid #ccc; box-shadow: 0 4px 8px rgba(0,0,0,0.1); z-index:1000; text-align:center;">
+  <h3>Thank You!</h3>
+  <p>Your message has been sent successfully.</p>
+  <button onclick="closePopup()">Close</button>
+</div>
+<div id="overlay"
+  style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:999;">
+</div>
+
+    
     <p class="hidePara" aria-hidden="true" id="retourFormulaire"></p>
   </section>
 
