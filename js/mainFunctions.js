@@ -134,21 +134,21 @@ $(function () {
 $(function () {
     $('.newsletterForm').on('submit', function (e) {
         e.preventDefault();
-        let checkRobot = $('#checkRobotNews').val();
-
-        if (checkRobot == 7) {
-            $('.newsletterForm').fadeOut(400, function () {
-                $('#retourNewsFormulaire').css({
-                    "padding": "10px",
-                    "margin-top": "20px",
-                    "color": "white",
-                    "text-align": "center"
-                });
-                $('#retourNewsFormulaire').html("Subscription successful! (Static Test)").show();
+        
+        // Langsung jalankan animasi fadeOut tanpa mengecek input robot
+        $('.newsletterForm').fadeOut(400, function () {
+            $('#retourNewsFormulaire').css({
+                "padding": "10px",
+                "margin-top": "20px",
+                "color": "white",
+                "text-align": "center"
             });
-        } else {
-            $('#helpMailNews').text('Incorrect result of 4 + 3').show();
-        }
+            // Menampilkan pesan sukses
+            $('#retourNewsFormulaire').html("Subscription successful!").show();
+        });
+        
+        // Sembunyikan pesan error jika sebelumnya sempat muncul
+        $('#helpMailNews').hide();
     });
 });
 
