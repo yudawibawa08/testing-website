@@ -336,6 +336,27 @@
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
   const remoteConfig = getRemoteConfig(app);
+
+  remoteConfig.settings.minimumFetchIntervalMillis = 0;
+  
+  remoteConfig.defaultConfig = {
+      "headline_text": ""
+    };
+
+  fetchAndActivate(remoteConfig)
+      .then(() => {
+        const newText = getValue(remoteConfig, "headline_text").asString();
+
+        // Jika newText tidak kosong dan bukan string kosong dari Firebase
+        if (newText && newText !== "") {
+          document.getElementById("button_abc").innerText = newText;
+        }
+        // Jika kosong, browser otomatis tetap menampilkan teks asli dari HTML
+      })
+      .catch((err) => {
+        console.error("Gagal memuat Remote Config:", err);
+        // Teks tetap "Island of a Thousand Temples" karena script gagal dijalankan
+      });
 </script>
   
   </html>
