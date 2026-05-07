@@ -312,7 +312,6 @@
   </body>
 
 <script type="module">
-  // Gunakan link HTTPS yang konsisten untuk semua modul
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
   import { getRemoteConfig, fetchAndActivate, getValue } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-remote-config.js";
@@ -335,7 +334,7 @@
   // Paksa ambil data baru (cache 0)
   remoteConfig.settings.minimumFetchIntervalMillis = 0;
 
-  // Nama parameter harus sesuai gambar: "button_abc"
+  // state default value element
   remoteConfig.defaultConfig = {
     "button_abc": "Island of a Thousand Temples"
   };
@@ -355,7 +354,7 @@
       }
     })
     .catch((err) => {
-      console.error("Gagal memuat Remote Config:", err);
+      console.error("Failed Load Remote Config:", err);
     });
 </script>
   
