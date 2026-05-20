@@ -72,3 +72,16 @@
       console.error("Gagal memuat Remote Config:", err);
     });
 **/
+
+fetchAndActivate(remoteConfig)
+  .then(() => {
+    const newBgUrl = getValue(remoteConfig, "bg_main_view").asString();
+    
+    if (newBgUrl && newBgUrl !== "") {
+      // Memanggil menggunakan ID yang baru dibuat
+      const mainSection = document.getElementById("main_view_section");
+      if (mainSection) {
+        mainSection.style.backgroundImage = `url('${newBgUrl}')`;
+      }
+    }
+  })
